@@ -1,0 +1,23 @@
+package arvore;
+
+public class No {
+	private Integer info;
+	private No direita=null;
+	private No esquerda=null;
+	public No(Integer info) {
+		this.info = info;
+	}
+	public No inserir(Integer info) {
+		if(info > this.info) {
+			if(direita != null) {
+				direita.inserir(info);
+			}else {
+				direita.No(info);
+			}
+		}
+		
+		
+	}
+	
+
+}

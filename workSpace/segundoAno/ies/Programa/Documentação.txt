@@ -1,0 +1,42 @@
+Documentação do Projeto
+
+Nome do Projeto: Sistema de gestão de voos
+
+Código do Projeto: SGVOO
+
+Equipe de Trabalho: Levi, Caio e Lucas
+
+Requisitos: 
+
+[001]Manejo de dados dos voos:
+	O sistema deve possibilitar o manipulação de voos, tal como inserir, alterar, consultar e excluir um voo. 
+	Essas características devem ser aplicadas a todos os parâmetros que um voo deve possuir, como: prefixo, sigla e nome de aeroportos de destino e origem, horários, duração e aeronave.
+	Além do mais, o sistema deve impedir que dados equivocados sejam inseridos, principalmente, siglas e dados de tempo.
+
+[002]Manejo de dados dos clientes:
+	O sistema deve possibilitar o manipulação de clientes, tal como inserir, alterar, consultar e excluir um cliente do sistema. 
+	O sistema deve possibilitar simultaneamente a manipulação dos dados relacionados a cada cliente, esses: nome, programa de milhagem, CPF, categoria, e saldo de milhas. 
+	Além de impedir que dados equivocados sejam associados a cada cliente, principalmente o CPF.
+
+[003]Manejo de dados das Aeronaves: 
+	O sistema deve possibilitar o manipulação de aeronaves, tal como inserir, alterar, consultar e excluir uma aeronave. 
+	O sistema deve possibilitar simultaneamente a manipulação dos dados relacionados a cada aeronave, esses: modelo, comprimento, altura, envergadura, velocidade de cruzeiro, alcance máximo, quantidade de assentos e quantidade de banheiros.
+
+[004]Teste de funcionalidades:
+	O sistema deve permitir, além dos parâmetros anteriores, a possibilidade de teste de cada função principal do programa.
+
+[005]Quadro de voos
+	O sistema deve possibilitar a consulta do cronograma dos voos registrados. A consulta será através de um quadro dinâmico que mostra o status dos voos mais próximos a sua partida. 
+	Além do mais, deve ser possível a inserção de um horário aleatório, pelo usuário, para simular o status dos voos naquele momento fictício.
+
+Design: O trabalho será organizado em estruturas para voos, clientes e aeronaves. O armazenamento será feito na memoria através da organização em listas duplamente encadeadas.
+	As funções serão organizadas em grupo, de acordo com suas funcionalidades, e dispostas em bibliotecas.
+	
+
+
+Repositório: O processo de desenvolvimento será feito simultaneamente por todos os membros da equipe, através da interface do Github: 	
+	https://github.com/CaioslppUO/TrabalhoIES_3/tree/master/Programa
+
+Responsável: Levi 
+
+Data: 04/04/2019

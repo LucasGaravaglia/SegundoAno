@@ -1,0 +1,80 @@
+Aluno: Lucas Garavaglia
+Segundo lista de introdução a arquitetura de computadores
+1. Qual a diferença entre polling e interrupção?
+polling : É o protocolo usado pelo S.O para usar algum I/O
+Interrupção: É o mecanismo que permite alterar o fluxo de controle de um programa, similar aos mecanismos estudados de chamada de procedures e jumps.
+
+2. O que vem a ser endereço de I/O?Quais os endereços de I/O do conttrolador do teclado, da pic, do RTC, das portas serias COM1 e COM2 e da porta parelela LPT1?
+Endereços usados para a comunicação dos dispositivos.
+Endereço Teclado = 0x60, 0x64
+Endereço PIC	 = Master-> 0x0020, 0x0021 / Slave->0x00A0, 0x00A1
+Endereço do RTC  = 0x0070, 0x0071
+Endereço COM1    = 0x03F8, 0x03FF
+Endereço COM1    = 0x02F8, 0x02FF
+Endereço LPT1	 = 0x0278, 0x027A
+
+3.O que é IRQ?
+São interrupções de hardware, canais que os dispositivos podem utilizar para chamar a atenção do processador.
+
+4. Quais são as etapas realizadas para tratar uma requisição de um dispositivo de I/O?
+Save context -> get intr id-> lookup isr-> execute isr.
+
+5. Quais as diferenças nas semânticas de um jump, de uma chamada de função, da execução de um processo e de uma interrupção?
+
+6. Como estão classificadas as interrupções no Pentium?
+aborts,faults,traps(exceptions) /  user defined, system defined(software interrupt) / Mascaravel, não mascaravel(hardware interrupt).
+
+
+7. Qual o funcionamento básico do 8259A (PIC – Programmable Interrupt Controller)?
+Ela define a ordem de interrupções que vai para o processador, para não ir todas de uma vez, ela que controla.
+
+8. Explique o que é Interrupção Mascarável e Não-Mascarável, e para que servem as instruções cli e sti.
+Mascarável = Interrupções feita por qualquer ontra fonte exeto o computador.
+Não mascarável = Interrupções feita pelo processador, exemplo, erro de paridade de memória
+cli = clear no flag de interrupção, ou seja, desativa a interrupção do sistema
+Std = set no flag de interrupção, ou seja, ativa a iterrupção no sistema
+
+9. Explique para que serve o Vetor de Interrupções (IDT):
+os vetores de 0 a 31, os quais servem para exceções e interrupções não mascaráveis, vetores de 32 a 47, que são para interrupções mascaráveis, isto é, para
+interrupções causadas por requisições de interrupção (IRQs),e apenas um vetor (128), dos restantes vetores, de 48 a 255, que é usado para interrupções de software.
+
+a. Qual a utilização de cada uma das interrupções de 0 a 19?
+sys_exit
+sys_fork
+sys_read
+sys_write
+sys_open
+sys_close
+sys_waitpid
+sys_creat
+sys_link
+sys_unlink
+sys_execve
+sys_chdir
+sys_time
+sys_mknod
+sys_chmod
+sys_lchown
+sys_stat
+sys_lseek
+
+b. Qual a utilização de cada uma das interrupções de 32 a 47?
+sys_access
+sys_nice
+sys_sync
+sys_kill
+sys_rename
+sys_mkdir
+sys_rmdir
+sys_dup
+sys_pipe
+sys_times
+sys_brk
+sys_setgid
+sys_getgid
+
+c. Escolha uma do item a e uma do item b e pesquise detalhes sobre elas no código do Linux.
+
+10. Como você classifica a Interrupção 0x80 do Linux ? Que funcionalidades fazem parte desta interrupção?
+Essencial. Todo o vetor de interrupção (IDT).
+

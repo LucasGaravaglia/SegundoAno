@@ -1,0 +1,42 @@
+Aula 16/08
+
+-> Razões para usar o assembly
+	I)Razões educacionais
+	II)Depuração e verificação
+	III)Implementação de compiladores
+	IV)Sistemas embarcados
+	V)Acesso a instrução não disponivel na linguagem de alto nivel
+	VI)Otimização no uso de memória
+	VII)Otimização do tempo de processamento
+	
+-> Razões para não usar o assembly
+	I)Tempo de desenvolvimento
+	II)Confiabilidade e segurança
+	III)Depuração e verificação
+	IV)Manutenibilidade
+	V)Uso de funções intrinsecas ou classes vetoriais
+	VI)Portabilidade
+	VII)Compiladores evoluiram muito nos ultimos anos
+
+Arquitetura dos processadores intel:
+
+	->Ano   ->Modelo      ->Quantidade bits
+	->1969  ->intel 4004  ->4bits
+	->      ->intel 8008  ->8bits
+	->1979  ->intel 8086  ->16bits
+	->      ->intel 8088  ->       :IBM PC
+	->1972  ->intel 80286 ->16bits
+	->1985  ->intel 80386 ->32bits
+	->1989  ->intel 80486 ->32bits
+	->1993  ->Pentium     ->32bits - 64bits
+
+Ciclo de Processamento de uma instrução:
+	->FETCH
+	->DECODE
+	->EXECUTE
+	->WRITE
+
+Endereçamento de memoria
+
+Endereço abstrato"Linguagem" => Endereço Logico"CPU" =>Endereço Fisico"MEM"
+

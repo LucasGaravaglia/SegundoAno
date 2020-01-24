@@ -1,0 +1,340 @@
+Aluno :Lucas Garavaglia
+CODIGO ASSEMBLY EXERCICIO 8 {
+    	.file	"main.c"
+	.intel_syntax noprefix
+	.text
+	.globl	ordenar
+	.type	ordenar, @function
+ordenar:
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 32
+	mov	DWORD PTR [ebp-12], 0
+	jmp	.L2
+.L6:
+	mov	eax, DWORD PTR [ebp-12]
+	lea	edx, [0+eax*4]
+	mov	eax, DWORD PTR [ebp+8]
+	add	eax, edx
+	mov	eax, DWORD PTR [eax]
+	mov	DWORD PTR [ebp-20], eax
+	mov	eax, DWORD PTR [ebp-12]
+	mov	DWORD PTR [ebp-16], eax
+	mov	eax, DWORD PTR [ebp-12]
+	add	eax, 1
+	mov	DWORD PTR [ebp-8], eax
+	jmp	.L3
+.L5:
+	mov	eax, DWORD PTR [ebp-8]
+	lea	edx, [0+eax*4]
+	mov	eax, DWORD PTR [ebp+8]
+	add	eax, edx
+	mov	eax, DWORD PTR [eax]
+	cmp	DWORD PTR [ebp-20], eax
+	jge	.L4
+	mov	eax, DWORD PTR [ebp-8]
+	lea	edx, [0+eax*4]
+	mov	eax, DWORD PTR [ebp+8]
+	add	eax, edx
+	mov	eax, DWORD PTR [eax]
+	mov	DWORD PTR [ebp-20], eax
+	mov	eax, DWORD PTR [ebp-8]
+	mov	DWORD PTR [ebp-16], eax
+.L4:
+	add	DWORD PTR [ebp-8], 1
+.L3:
+	mov	eax, DWORD PTR [ebp-8]
+	cmp	eax, DWORD PTR [ebp+12]
+	jl	.L5
+	mov	eax, DWORD PTR [ebp-12]
+	lea	edx, [0+eax*4]
+	mov	eax, DWORD PTR [ebp+8]
+	add	eax, edx
+	mov	eax, DWORD PTR [eax]
+	mov	DWORD PTR [ebp-4], eax
+	mov	eax, DWORD PTR [ebp-16]
+	lea	edx, [0+eax*4]
+	mov	eax, DWORD PTR [ebp+8]
+	add	eax, edx
+	mov	edx, DWORD PTR [ebp-12]
+	lea	ecx, [0+edx*4]
+	mov	edx, DWORD PTR [ebp+8]
+	add	edx, ecx
+	mov	eax, DWORD PTR [eax]
+	mov	DWORD PTR [edx], eax
+	mov	eax, DWORD PTR [ebp-8]
+	lea	edx, [0+eax*4]
+	mov	eax, DWORD PTR [ebp+8]
+	add	edx, eax
+	mov	eax, DWORD PTR [ebp-4]
+	mov	DWORD PTR [edx], eax
+	add	DWORD PTR [ebp-12], 1
+.L2:
+	mov	eax, DWORD PTR [ebp-12]
+	cmp	eax, DWORD PTR [ebp+12]
+	jl	.L6
+	nop
+	nop
+	leave
+	ret
+	.size	ordenar, .-ordenar
+	.globl	shiftmaior
+	.type	shiftmaior, @function
+shiftmaior:
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 16
+	mov	eax, DWORD PTR [ebp+12]
+	lea	edx, [0+eax*4]
+	mov	eax, DWORD PTR [ebp+8]
+	add	eax, edx
+	mov	eax, DWORD PTR [eax]
+	mov	DWORD PTR [ebp-12], eax
+	mov	eax, DWORD PTR [ebp+12]
+	mov	DWORD PTR [ebp-4], eax
+	jmp	.L8
+.L10:
+	mov	eax, DWORD PTR [ebp-4]
+	lea	edx, [0+eax*4]
+	mov	eax, DWORD PTR [ebp+8]
+	add	eax, edx
+	mov	eax, DWORD PTR [eax]
+	cmp	DWORD PTR [ebp-12], eax
+	jge	.L9
+	mov	eax, DWORD PTR [ebp-4]
+	lea	edx, [0+eax*4]
+	mov	eax, DWORD PTR [ebp+8]
+	add	eax, edx
+	mov	eax, DWORD PTR [eax]
+	mov	DWORD PTR [ebp-12], eax
+	mov	eax, DWORD PTR [ebp-4]
+	mov	DWORD PTR [ebp-8], eax
+.L9:
+	add	DWORD PTR [ebp-4], 1
+.L8:
+	mov	eax, DWORD PTR [ebp-4]
+	cmp	eax, DWORD PTR [ebp+16]
+	jl	.L10
+	mov	eax, DWORD PTR [ebp-8]
+	mov	DWORD PTR [ebp-4], eax
+	jmp	.L11
+.L12:
+	mov	eax, DWORD PTR [ebp-4]
+	lea	edx, [0+eax*4]
+	mov	eax, DWORD PTR [ebp+8]
+	add	eax, edx
+	mov	eax, DWORD PTR [eax]
+	mov	DWORD PTR [ebp-12], eax
+	mov	eax, DWORD PTR [ebp-4]
+	add	eax, 1
+	lea	edx, [0+eax*4]
+	mov	eax, DWORD PTR [ebp+8]
+	add	eax, edx
+	mov	edx, DWORD PTR [ebp-4]
+	lea	ecx, [0+edx*4]
+	mov	edx, DWORD PTR [ebp+8]
+	add	edx, ecx
+	mov	eax, DWORD PTR [eax]
+	mov	DWORD PTR [edx], eax
+	mov	eax, DWORD PTR [ebp-4]
+	add	eax, 1
+	lea	edx, [0+eax*4]
+	mov	eax, DWORD PTR [ebp+8]
+	add	edx, eax
+	mov	eax, DWORD PTR [ebp-12]
+	mov	DWORD PTR [edx], eax
+	add	DWORD PTR [ebp-4], 1
+.L11:
+	mov	eax, DWORD PTR [ebp-4]
+	cmp	eax, DWORD PTR [ebp+16]
+	jl	.L12
+	nop
+	nop
+	leave
+	ret
+	.size	shiftmaior, .-shiftmaior
+	.globl	main
+	.type	main, @function
+main:
+	lea	ecx, [esp+4]
+	and	esp, -16
+	push	DWORD PTR [ecx-4]
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+	sub	esp, 420
+	mov	eax, DWORD PTR gs:20
+	mov	DWORD PTR [ebp-12], eax
+	xor	eax, eax
+	push	DWORD PTR [ebp-416]
+	lea	eax, [ebp-412]
+	push	eax
+	call	ordenar
+	add	esp, 8
+	push	40
+	push	12
+	lea	eax, [ebp-412]
+	push	eax
+	call	shiftmaior
+	add	esp, 12
+	mov	eax, 0
+	mov	edx, DWORD PTR [ebp-12]
+	xor	edx, DWORD PTR gs:20
+	je	.L15
+	call	__stack_chk_fail
+.L15:
+	mov	ecx, DWORD PTR [ebp-4]
+	leave
+	lea	esp, [ecx-4]
+	ret
+	.size	main, .-main
+	.ident	"GCC: (GNU) 9.1.0"
+	.section	.note.GNU-stack,"",@progbits
+
+}
+CODIGO ASSEMBLY EXERCICIO 9{
+    	.file	"exer9.c"
+	.intel_syntax noprefix
+	.text
+	.globl	f
+	.type	f, @function
+f:
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 16
+	mov	eax, DWORD PTR [ebp+12]
+	mov	DWORD PTR [ebp-16], eax
+	mov	eax, DWORD PTR [ebp+16]
+	mov	DWORD PTR [ebp-12], eax
+	mov	eax, DWORD PTR [ebp+20]
+	mov	DWORD PTR [ebp-8], eax
+	mov	eax, DWORD PTR [ebp+24]
+	mov	DWORD PTR [ebp-4], eax
+	mov	eax, DWORD PTR [ebp-16]
+	add	eax, 1
+	mov	DWORD PTR [ebp-16], eax
+	mov	eax, DWORD PTR [ebp-12]
+	add	eax, 1
+	mov	DWORD PTR [ebp-12], eax
+	mov	eax, DWORD PTR [ebp-8]
+	add	eax, 1
+	mov	DWORD PTR [ebp-8], eax
+	mov	eax, DWORD PTR [ebp-4]
+	add	eax, 1
+	mov	DWORD PTR [ebp-4], eax
+	mov	eax, DWORD PTR [ebp+8]
+	mov	edx, DWORD PTR [ebp-16]
+	mov	DWORD PTR [eax], edx
+	mov	edx, DWORD PTR [ebp-12]
+	mov	DWORD PTR [eax+4], edx
+	mov	edx, DWORD PTR [ebp-8]
+	mov	DWORD PTR [eax+8], edx
+	mov	edx, DWORD PTR [ebp-4]
+	mov	DWORD PTR [eax+12], edx
+	mov	eax, DWORD PTR [ebp+8]
+	leave
+	ret	4
+	.size	f, .-f
+	.comm	global,16,4
+	.comm	result,16,4
+	.globl	main
+	.type	main, @function
+main:
+	lea	ecx, [esp+4]
+	and	esp, -16
+	push	DWORD PTR [ecx-4]
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+	sub	esp, 52
+	mov	eax, ecx
+	mov	eax, DWORD PTR [eax+4]
+	mov	DWORD PTR [ebp-28], eax
+	mov	eax, DWORD PTR gs:20
+	mov	DWORD PTR [ebp-12], eax
+	xor	eax, eax
+	lea	eax, [ebp-56]
+	push	DWORD PTR global+12
+	push	DWORD PTR global+8
+	push	DWORD PTR global+4
+	push	DWORD PTR global
+	push	eax
+	call	f
+	add	esp, 16
+	mov	eax, DWORD PTR [ebp-56]
+	mov	DWORD PTR result, eax
+	mov	eax, DWORD PTR [ebp-52]
+	mov	DWORD PTR result+4, eax
+	mov	eax, DWORD PTR [ebp-48]
+	mov	DWORD PTR result+8, eax
+	mov	eax, DWORD PTR [ebp-44]
+	mov	DWORD PTR result+12, eax
+	mov	eax, 0
+	mov	edx, DWORD PTR [ebp-12]
+	xor	edx, DWORD PTR gs:20
+	je	.L5
+	call	__stack_chk_fail
+.L5:
+	mov	ecx, DWORD PTR [ebp-4]
+	leave
+	lea	esp, [ecx-4]
+	ret
+	.size	main, .-main
+	.ident	"GCC: (GNU) 9.1.0"
+	.section	.note.GNU-stack,"",@progbits
+
+}
+
+CODIGO EM C DA 8{
+#include <stdio.h>
+
+
+
+void ordenar(int *v,int n){
+    int maior;
+    int pos;
+    int troca,i,j;
+    for(i=0;i<n;i++){
+        maior = v[i];
+        pos = i;
+        for(j=i+1;j<n;j++){
+            if(maior < v[j]){
+                maior = v[j];
+                pos = j;
+            }
+        }
+        troca = v[i];
+        v[i] = v[pos];
+        v[j] = troca;
+    }
+
+}
+
+void shiftmaior(int *v, int a, int b){
+    int maior;
+    int pos;
+    int i,j;
+    maior = v[a];
+    for(i = a;i<b;i++){
+        if(maior < v[i]){
+            maior = v[i];
+            pos = i;
+        }
+    }
+
+    for(i= pos;i<b;i++){
+        maior = v[i];
+        v[i] = v[i+1];
+        v[i+1] = maior;
+    }
+}
+
+
+int main(){
+    int v[100];
+    int n;
+    ordenar(v,n);
+    shiftmaior(v,12,40);
+    return 0;
+}
+}

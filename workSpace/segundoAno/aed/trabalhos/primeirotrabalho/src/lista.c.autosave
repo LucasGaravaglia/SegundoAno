@@ -1,0 +1,340 @@
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include "lista_cliente.h"
+#include "controle.h"
+
+
+
+
+/*
+ * Funções de lista dos voos
+ */
+ 
+ 
+Flight procura_voo(char prefixo[],Lista_Voo *lista){
+    while(lista){
+        if(strcmp(prefixo,lista->voo.prefixo)){
+            return lista->voo;
+        }
+        lista = lista->prox;
+    }
+    Flight nao_achado;
+    nao_achado.prefixo=NULL;
+    nao_achado.tipo=NULL;
+    return nao_achado;
+}
+ 
+int vazia_voo(Lista_Voo * l){
+    return (!l);
+}
+void imprimir_lista_voo(Lista_Voo * l){
+    while(l){
+        printf("%s\n", l->voo.prefixo);
+        l=l->prox;
+    }
+}
+Lista_Voo * inserir_lista_voo(Lista_Voo * l, Flight info){
+    Lista_Voo * aux;
+    aux=malloc(sizeof(Lista_Voo));
+    if(atribui_voo(aux, info)){
+        aux->prox=l;
+        if(aux->prox)aux->prox->ant=aux;
+        aux->ant=NULL;
+        return aux;
+    }else{
+        free(aux);
+        return l;
+    }
+}
+Lista_Voo * alterar_lista_voo(Lista_Voo * l, Flight info, Flight x){
+    if(!l)return NULL;
+    while(!strstr(l->voo.prefixo,info.prefixo)){
+        if(!l->prox)break;
+        l=l->prox;
+    }
+    if(strstr(l->voo.prefixo,info.prefixo)){
+        atribui_voo(l, info);
+        return l;
+    }
+    return NULL;
+    
+}
+
+int consultar_lista_voo(Lista_Voo * l, Flight info){
+    if(!l)return NULL;
+    while(!strstr(l->voo.prefixo,info.prefixo)){
+        l=l->prox;
+        if(!l->prox)break;
+    }
+    if(strstr(l->voo.prefixo,info.prefixo)){
+        imprime_voo(l->voo);
+        return 1;
+    }
+    return NULL;
+}
+Lista_Voo * deletar_lista_voo(Lista_Voo * l, Flight info){
+    Lista_Voo * head=l;
+    if(vazia_voo(l))return NULL;
+    if(strstr(l->voo.prefixo,info.prefixo)){
+        Lista_Voo * aux=l->prox;
+        free(l->voo.prefixo);
+        free(l->voo.nomeD);
+        free(l->voo.nomeO);
+        free(l->voo.tipo);
+        free(l);
+        if(aux)aux->ant=NULL;
+        return aux;
+    }
+    while(!strstr(l->voo.prefixo,info.prefixo)){
+        l=l->prox;
+        if(!l)break;
+    }
+    if(l){
+        l->ant->prox=l->prox;
+        if(l->prox != NULL)l->prox->ant=l->ant;
+        free(l->voo.prefixo);
+        free(l->voo.nomeD);
+        free(l->voo.nomeO);
+        free(l->voo.tipo);
+        free(l);
+        return head;
+    }
+    return head;
+}
+
+void ordena_lista_voo_manual(Lista_Voo *l, char * temp){
+    Lista_Voo * aux;
+    int maior, x;
+    while(l){            
+        maior=status_manual(l->voo.horaP, temp);
+        for(aux=l;aux;aux=aux->prox){
+            x=status_manual(aux->voo.horaP, temp);
+            if(x>maior){
+            troca_voo(&l->voo, &aux->voo);
+            maior=x;
+            
+            }
+        }
+        l=l->prox;
+    }   
+}
+
+void ordena_lista_voo(Lista_Voo *l){
+    Lista_Voo * aux;
+    int maior, x;
+    while(l){            
+        maior=status(l->voo.horaP);
+        for(aux=l;aux;aux=aux->prox){
+            x=status(aux->voo.horaP);
+            if(x>maior){
+            troca_voo(&l->voo, &aux->voo);
+            maior=x;
+            
+            }
+        }
+        l=l->prox;
+    }   
+}
+
+
+/*
+ * Funções de lista dos clientes
+ */
+
+Client procura_pessoa(char cpf[],Lista_Cliente *lista){
+    while(lista){
+        if(strcmp(cpf,lista->cliente.cpf)){
+            return lista->cliente;
+        }
+        lista = lista->prox;
+    }
+    Client nao_achado;
+    nao_achado.cpf[0]=NULL;
+    return nao_achado;
+}
+
+
+int vazia_cliente(Lista_Cliente * l){
+    return (!l);
+}
+void imprimir_lista_cliente(Lista_Cliente * l){
+    while(l){
+        printf("%s  -   %s\n", l->cliente.nome, l->cliente.cpf);
+        l=l->prox;
+    }
+}
+Lista_Cliente * inserir_lista_cliente(Lista_Cliente * l, Client info){
+    Lista_Cliente * aux;
+    aux=malloc(sizeof(Lista_Cliente));
+    if(atribui_cliente(aux, info)){
+        aux->prox=l;
+        if(aux->prox)aux->prox->ant=aux;
+        aux->ant=NULL;
+        return aux;
+    }else{
+        free(aux);
+        return l;
+    }
+}
+Lista_Cliente * alterar_lista_cliente(Lista_Cliente * l, Client info, Client desejada){
+    if(!l)return NULL;
+    while(!strstr(l->cliente.cpf,info.cpf)){
+        if(!l->prox)break;
+        l=l->prox;
+    }
+    if(strstr(l->cliente.cpf,info.cpf)){
+        atribui_cliente(l, info);
+        return l;
+    }
+    return NULL;
+}
+Lista_Cliente * consultar_lista_cliente(Lista_Cliente * l, Client info){
+    if(!l)return NULL;
+    while(!strstr(l->cliente.cpf,info.cpf)){
+        if(!l->prox)break;
+        l=l->prox;
+    }
+    if(strstr(l->cliente.cpf,info.cpf)){
+        imprime_cliente(l->cliente);
+        return 1;
+    }
+    return NULL;
+}
+Lista_Cliente * deletar_lista_cliente(Lista_Cliente * l, Client info){
+    Lista_Cliente * head=l;
+    if(!l)return NULL;
+    if(strstr(l->cliente.cpf,info.cpf)){
+        l=l->prox;
+        if(l)free(l->ant);
+        if(l)l->ant=NULL;
+        return l;
+    }
+    while(!strstr(l->cliente.cpf,info.cpf)){
+        l=l->prox;
+        if(!l)break;
+    }
+    if(l){
+        l->ant->prox=l->prox;
+        if(l->prox != NULL)l->prox->ant=l->ant;
+        free(l);
+        return head;
+    }
+    return head;
+}
+
+/*
+ * Funções de lista das aeronaves
+ */
+
+Plane procura_aeronave(char modelo[],Lista_Plane *lista){
+    while(lista){
+        if(strcmp(modelo,lista->aeronave.modelo)){
+            return lista->aeronave;
+        }
+        lista = lista->prox;
+    }
+    Plane nao_achado;
+    nao_achado.modelo=NULL;
+    return nao_achado;
+}
+
+
+int vazia_plane(Lista_Plane * l){
+    return (!l);
+}
+void imprimir_lista_plane(Lista_Plane * l){
+    while(l){
+        printf("%s\n", l->aeronave.modelo);
+        l=l->prox;
+    }
+}
+Lista_Plane * inserir_lista_plane(Lista_Plane *l, Plane info){
+    Lista_Plane * aux;
+    aux=malloc(sizeof(Lista_Plane));
+    atribui_plane(aux, info);
+    aux->prox=l;
+    if(aux->prox)aux->prox->ant=aux;
+    aux->ant=NULL;
+    return aux;
+}
+Lista_Plane * alterar_lista_plane(Lista_Plane *l, Plane info, Plane x){
+    if(!l)return NULL;
+    
+    
+    while(!strstr(l->aeronave.modelo,info.modelo)){
+        l=l->prox;
+        if(!l->prox)break;
+    }
+    if(strstr(l->aeronave.modelo,info.modelo)){
+        atribui_plane(l, info);
+        return l;
+    }
+    return NULL;
+}
+Lista_Plane * consultar_lista_plane(Lista_Plane *l, Plane info){
+    if(!l)return NULL;
+    while(!strstr(l->aeronave.modelo,info.modelo)){
+        if(!l->prox)break;
+        l=l->prox;
+    }
+    if(strstr(l->aeronave.modelo,info.modelo)){
+        imprime_plane(l->aeronave);
+        return 1;
+    }
+    return NULL;
+}
+Lista_Plane * deletar_lista_plane(Lista_Plane *l, Plane info){
+    if(!l)return NULL;
+    Lista_Plane * head=l;
+    if(strstr(l->aeronave.modelo,info.modelo)){
+        Lista_Plane * aux=l->prox;
+        free(l->aeronave.modelo);
+        free(l);
+        if(aux)aux->ant=NULL;
+        return aux;
+    }
+    while(!strstr(l->aeronave.modelo,info.modelo)){
+        l=l->prox;
+        if(!l)break;
+    }
+    if(l){
+        l->ant->prox=l->prox;
+        if(l->prox != NULL)l->prox->ant=l->ant;
+        free(l);
+        return head;
+    }
+    return head;
+}
+
+
+
+int Conta_Lista_voo(Lista_Voo *v){
+    Lista_Voo *aux = v;
+    int i = 0;
+    while(aux != NULL){
+        aux = aux->prox;
+        i++;
+    }
+    return i;
+}
+
+int Conta_Lista_Client(Lista_Cliente *v){
+    Lista_Cliente *aux = v;
+    int i = 0;
+    while(aux != NULL){
+        aux = aux->prox;
+        i++;
+    }
+    return i;
+}
+
+int Conta_Lista_Plane(Lista_Plane *v){
+    Lista_Plane *aux = v;
+    int i = 0;
+    while(aux != NULL){
+        aux = aux->prox;
+        i++;
+    }
+    return i;
+}

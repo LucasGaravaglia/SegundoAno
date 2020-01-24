@@ -1,0 +1,34 @@
+package arvore;
+
+public class No {
+	private Integer info;
+	private No direita=null;
+	private No esquerda=null;
+	public No(Integer info) {
+		this.info = info;
+	}
+	public void add(Integer info) {
+		if(info > this.info) {
+			if(this.direita != null) {
+				this.direita.add(info);
+			}else {
+				this.direita = new No(info);
+			}
+		}else if(info < this.info) {
+			if(this.esquerda != null) {
+				this.esquerda.add(info);
+			}else {
+				this.esquerda = new No(info);
+			}
+		}
+	}
+	
+	private int compareTo(Integer info) {
+		if(info==null) return 0;
+		if(this.info>info) return -1;
+		if(this.info<info) return 1;
+		return 0;
+	}
+	
+
+}

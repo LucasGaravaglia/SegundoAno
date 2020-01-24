@@ -1,0 +1,101 @@
+Aluno: Lucas Garavaglia
+1) Qual o formato das instruções da arquitetura 80386 32bits? Descreva cada uma das partes
+R.:
+prefix -> Pode não estar presente (0/1)
+opcode -> (1/2)
+mod/rm -> (0/1)
+sib ->(0/1) S= 00 I = 000 B = 000
+disp -> (0/4)
+imm -> (0/4)
+2) Qual o tamhno em bytes da instrução mais curta? Cite algumas
+R.:
+1 byte
+push, pop, nop
+3) Qual o maior tamanho possivel para uma instrução?
+11 bytes
+
+4)
+b-  66 89 d8                          01100110 10001001 11011000
+c-  89 d8                             10001001 11011000
+d-  2e 8b 84 cb 04 03 02 01           00101110 10001011 10000100 11001011 00000100 00000011 00000010 00000001
+e-  36 8b 84 cb 04 03 02 01           00110110 10001011 10000100 11001011 00000100 00000011 00000010 00000001
+f-  8b 84 cb 04 03 02 01              10001011 10000100 11001011 00000100 00000011 00000010 00000001
+g-  64 8b 84 cb 04 03 02 01           01100100 10001011 10000100 11001011 00000100 00000011 00000010 00000001
+h-  89 e5                             10001001 11100101
+i-  55                                01010101
+j-  0f b6 c2                          00001111 10110110 11000010
+k-  0f be d4                          00001111 10111110 11010100
+l-  03 84 fb 44 33 22 11              00000011 10000100 11111011 01000100 00110011 00100010 00010001
+m-  69 05 84 20 65 56 dd cc bb aa     01101001 00000101 10000100 00100000 01100101 01010110 11011101 11001100 10111011 10101010
+n-  69 84 cb 04 03 02 01 dd cc bb aa  01101001 10000100 11001011 00000100 00000011 00000010 00000001 11011101 11001100 10111011 10101010
+o-  5d                                01011101
+p-  50                                01010000
+q-  85                                10000101
+r-  e9                                11101001
+s-  e9                                11101001
+t-  e8                                11101000   
+u-  c3                                11000011
+v-  c2 10 00                          11000010 00010000 00000000
+w-  f7 f9                             11110111 11111001
+x-  90                                10010000
+y-  d3 25 84 a0 60 56                 11010011 00100101 10000100 10100000 01100000 01010110
+z-  29 05 84 80 57 56                 00101001 00000101 10000100 10000000 01010111 01010110
+aa- 39 05 84 a0 62 56                 00111001 00000101 10000100 10100000 01100010 01010110
+
+5)
+a- 90 -> nop
+b- 21 d8 -> and fpu
+c- 
+
+6)
+Reservar espaço para parametro              |SUB ESP, #PARAMETRO
+Copiar argumetos para a pilha               |MOV[ESP+DISP],PARAMETRO
+/salva endereço de retorno                  |PUSH EIP+DISP(cal)
+Salva endereço do pai estatico              |PUSH EBP-CHAMANTE
+Salva o endereço do RA caller(l.din)        |MOV EBP, ESP
+Ativar o RA callee                          |SUB ESP, #LOCAL
+Reserva espaço para locals                  |SUB ESP, #PARAM
+Reserva espaço para o resultado             |MOV EAX, [EBP*DISP]
+copia resultado para lugar seguro           |MOV ESP, EBP
+liberar local/resultado                     |POP EBP
+Liberar para o endereço de retorno          |POP EIP(RET)
+Liberar parametro                           |ADD ESP, #PARAMETRO
+
+7)
+Cdecl ->
+Cdecl é uma convenção de chamada padrão para programas em C e C++ nesta convenção a pilha é limpa pelo chamador. O Cdecl cria executáveis maior que stdcall, porque requer que cada chamada de função tenha incluso o código de limpeza de pilha, apesar disso nos sistemas Unix(s), Linux, é a convenção padrão de uso.    
+Stdcall ->
+A convenção de chamada Stdcall é usada para chamar funções da API do Win32, sendo a convenção de chamada padrão de sistemas Windows. Nesta convenção o receptor limpa a pilha diferente do Cdecl. As funções que usam esta convenção de chamada exigem um protótipo de função.
+fascall ->
+Na maioria das vezes, a convenção de chamada não é considerável. Quando usa a convenção fastcall, os primeiros argumentos são passados através de registradores padrões da chamada.
+
+8)
+b- intruções para a montagem do RA para o ordenar{
+    lea	ecx, [esp+4]
+	and	esp, -16
+	push	DWORD PTR [ecx-4]
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+	sub	esp, 420
+	mov	eax, DWORD PTR gs:20
+	mov	DWORD PTR [ebp-12], eax
+	xor	eax, eax
+	push	DWORD PTR [ebp-416]
+	lea	eax, [ebp-412]
+	push	eax
+}
+instruções para a montagem do RA para shiftmaior{
+    add	esp, 8
+	push	40
+	push	12
+	lea	eax, [ebp-412]
+	push	eax
+}
+
+9.1)
+a)A passagem de parametro foi realizada fazendo o push
+b)O retorno da função foi realizado movendo dos registradores para o ebp, e do ebp para os registradores
+
+9.2)
+tanto a passaagem, quanto o retorno foram feitos exatamente iguais

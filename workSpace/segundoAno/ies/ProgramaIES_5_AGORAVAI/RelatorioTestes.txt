@@ -1,0 +1,9 @@
+Relatorio de Testes:
+
+Sun May  5 01:03:20 2019
+
+Taxa de aceitação estimada para voo de 66%, aeronaves de 100%, e clients de 72 a 73%.
+664 dos 1000 voos foram registrados.
+1000 das 1000 aeronaves foram registrados.
+722 dos 1000 clients foram registrados.
+

@@ -1,0 +1,32 @@
+Ciência:
+ *Sistematização do conhecimento
+ *Conjuntos de proposições sobre um fenômeno
+
+Níveis de conhecimento:
+ *Popular: Todo mundo sabe, as vezes se comprovam e as vezes não. Pode evoluir para científico.
+    	   Conhecimento do dia a dia
+ *Religioso: Dogmas, crêr mesmo que tenham evidências ao contrário
+ *Filosófico: Conhecimento pelo pensamento
+ *Científico: Conhecimento pelo experimento verificação
+
+Pesquisa:
+  *Pesquisa bibliográfica: Procura explicar um poblema a partir de referências teóricas publica-
+			   das em documentos. Junta o conhecimento de vários trabalhos.
+			   Levantamento de toda a bibliografia já publicada na área.
+  *Pesquisa descritíva ou de campo: Observa, pesquisa e coleta dados sem manipulá-los.Ex: pesquisa
+				    de opinião, estudo de caso, coleta de dados. Análise dos resul-
+				    tados.
+  *Pesquisa experimental ou de laboratório: Manipula diretamente as variáveis em estudo.Estuda a
+					    Relação entra causa e efeito das variáveis com os fenô-
+					    menos. Hipóteses, experimentação e indução.
+					    Ocorre de modo controlado e exige instrumentos específicos
+
+Métodos:
+  *Indutivo: Parte do particular para o geral, Ex: Galinha é ave e voa, Pato é ave e voa, Galo é
+	     ave e voa, logo, toda ave voa.
+
+  *Dedutivo: Parte do geral para o particular, Ex: Todo homem morre, eu sou homem, logo, eu morro.
+  
+Ética e plágio:
+  *Ato de assinar uma obra intelectual que contenha partes de outra obra que pertença a outro autor,
+	sem colocar os devidos créditos.

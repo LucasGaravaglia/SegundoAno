@@ -1,0 +1,4 @@
+#!/bin/bash
+cd ../src
+gcc controleaeronave.c controle.c controlecliente.c controlevoo.c gerastruct.c grafico.c interacaocliente.c interacoesaeronave.c interacoesvoo.c lista_aeronave.c lista_cliente.c lista_voo.c main.c menus.c relatoriotesteaeronave.c relatoriotesteclietes.c relatoriotestes.c relatoriotestevoo.c testeaeronave.c testecliente.c testevoo.c validacao.c -lm
+./a.out

@@ -1,0 +1,107 @@
+	Paradigmas de programção
+paradigma imperativo = Baseado em comandos e proceedimentos.
+paradigma o-o = Baseaso em objetos e classes.
+paradigma logico = Baseado na logica de predicados(fatos e regras).
+paradigma funcional = Baseado em funções.
+
+	Linguagens do paradigma funcional:
+mais conhecida = lisp
+
+	Fundamentos das linguagens de programação funcional
+*Não são usadas variaveis ou instruçoes de atribuição.
+*A repetição deve ser feita por recurção.
+
+		Oferecem:
+	Um conjunto de funções primitivas.
+	Um conjunto de formas funcionais para contruir funções complexas a partir das primitivas.
+	Uma função de aplicação de função.
+	E alguuma estrutura ou estruturas para representar dados.
+
+	Lisp
+Foi a primeira linguagem de programção funcional.
+Tinha somente dois tipos de estruturas de dados:
+	Átomos
+	Listas
+	Exemplos:(A B C D)
+		 (A(B C)D(E(F G)))
+
+
+	Scheme
+*É um dialedo do Lisp.
+*Surgiu em MIT em 1975.
+*Linguagem pequena com sintaxe e semântica simples, adaptando-se bem as aplicações educacionais.
+
+	Funçoes primiticas do Scheme:
++ - * /
+Expressão		Valor
+42			42
+(*3 7 )			21
+(+ 5 7 8 )		20
+(- 15 7 2 )		
+(- 24 (* 4 3 ))
+
+quote retorna tudo sem alterações e pode-se substituir por '
+(quote A)	retorna A
+'A		retorna A
+'(A B C)	retorna (A B C)
+
+CAR retorna o primeiro elemento de uma lista
+(CAR '(A B C))		retorna A
+(CAR '((A B) C D))	retorna (A B)
+(CAR A)			retorna ?			
+
+CDR retorna o restande d euma lista depois de se remover o car dessa lista
+(cdr '(A B C))		retorna (B C)
+
+cons é o contrutor de uma lista com dois parâmetros. O primeiro pode ser um átomo
+(cons 'A ())		retorna (A)
+(cons 'A '(B C))	retorna (A B C)
+
+list contói listas a partir de um numero de variavel de parametros
+
+eq?		=>
+list?		===> retornam   #T,#F ou ()
+NULL?		=>
+
+eq?
+#T se as duas variaveis são iguais.
+#F se as duas variaveis forem diferentes.
+() se essa variavel tem na lista.
+
+list?
+#T verdadeiro
+#F falso
+() lixo
+
+#T retorna falso se a lista for nula
+
+
+operadores logicos:
+=	igual
+<>	diferente
+>	maior
+<	menor
+>=	maior ou igual
+<=	menor ou igual
+*	mutiplicação
+/	divisão
+%	resto da divisão
+
+
+
+(define ( nome_da_função parametro)
+	corpo
+) 
+
+
+EXERCICIO A
+(comprimento(arg)
+	(cond((NULL arg)0)
+		(T(ADD1(comprimento(CDR arg))))
+		)
+------------------------------------------------------
+EXERCICIO B
+
+(membro a arg
+	(eq('a' car(arg))
+		(membro(a CDR arg)))

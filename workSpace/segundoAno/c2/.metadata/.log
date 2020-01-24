@@ -1,0 +1,25 @@
+!SESSION 2019-08-29 14:06:54.031 -----------------------------------------------
+eclipse.buildId=4.12.0.I20190605-1800
+java.version=12.0.2
+java.vendor=N/A
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.egit.core 1 0 2019-08-29 14:07:46.660
+!MESSAGE Using Apache MINA sshd as ssh client.
+
+!ENTRY org.eclipse.ui.navigator 4 0 2019-08-29 14:14:54.662
+!MESSAGE Cannot find navigator content extension (using triggerPoints) for object "<null>" parent path: "src [in prova2]
+  <default> (not open)
+  main (not open)".  Check that you have an expression for this object in a navigatorContent triggerPoints or enablement.
+!SESSION 2019-09-05 13:37:34.136 -----------------------------------------------
+eclipse.buildId=4.12.0.I20190605-1800
+java.version=12.0.2
+java.vendor=N/A
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.egit.core 1 0 2019-09-05 13:37:53.498
+!MESSAGE Using Apache MINA sshd as ssh client.

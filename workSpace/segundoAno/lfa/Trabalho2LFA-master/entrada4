@@ -1,0 +1,12 @@
+Q=4
+F={q1,q2,q3,q4}
+alfabeto fita ={a,b,c,d}
+alfabeto pilha = {X,Y}
+(q0,a,@) = (q0,X)
+(q0,b,@) = (q1,Y)
+(q1,b,@) = (q1,Y)
+(q1,c,Y) = (q2,@)
+(q2,c,Y) = (q2,@)
+(q2,d,X) = (q3,@)
+(q3,d,X) = (q3,@)
+

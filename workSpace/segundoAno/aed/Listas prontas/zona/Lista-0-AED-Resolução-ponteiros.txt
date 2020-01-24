@@ -1,0 +1,31 @@
+
+exercicio 1.
+a)essa expressao esta armazenando um valor em x
+b)
+c)conteudo da variavel
+
+exercicio 2.
+a)tem o valor 0
+b)tem o valor de um lixo
+c)tem o valor 0
+d)tem o valor de um lixo
+e)tem o valor 9
+f)tem o valor de um lixo
+g)tem o valor 0
+h)
+
+exercicio 3.
+a)Frase dentro de programa na linguagem C
+b)Lixo
+c)Lixo
+d)Lixo
+e)Lixo
+f)Lixo
+
+exercicio 4.
+a)10
+b)Lixo
+c)0
+d)0
+e)6
+

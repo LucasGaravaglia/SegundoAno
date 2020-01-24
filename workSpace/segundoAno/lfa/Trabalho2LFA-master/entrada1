@@ -1,0 +1,16 @@
+Q=5
+F={q0,q2,q4}
+alfabeto fita ={a,b}
+alfabeto pilha = {X}
+(q0,a,@) = (q1,X)
+(q0,b,@) = (q3,X)
+(q1,a,@) = (q1,X)
+(q1,b,X) = (q2,@)
+(q2,b,X) = (q2,@)
+(q2,a,@) = (q1,X)
+(q2,b,@) = (q3,X)
+(q3,b,@) = (q3,X)
+(q3,a,X) = (q4,@)
+(q4,a,X) = (q4,@)
+(q4,a,@) = (q1,X)
+(q4,b,@) = (q3,X)
